@@ -41,31 +41,9 @@ def dataframes(filenames: List(str), filepath: str):
     """
     i = 0
     while i < len(filenames):
-        df = pd.read_pickle(os.path.join(filepath, filenames[i]))
+        df = pd .read_pickle(os.path.join(filepath, filenames[i]))
         yield df
         i += 1
-
-
-def check_duplicates(df_names: List(str), dataframes, colname: str) -> None:
-    """
-    Basic check, whether or not duplicates are found across the dataframes
-    provided in the column specified.
-
-    :param df_names: list of strings to zip to / match dataframes provided
-    :param dataframes: iterable of dataframe objects
-    :param colname: string column name to check for duplicates
-    :return: None
-    """
-    # check for duplicates
-    for df_name, df in zip(df_names, dataframes):
-        no_dupes = df[colname].nunique() == df[colname].count()
-        if no_dupes:
-            no_dupes = "No Duplicates"
-        else:
-            no_dupes = "Duplicates Found"
-
-        print(f"{df_name.capitalize()} : {no_dupes}")
-
 
 def load_data(df_names: list, suffix: str, fpath: str, mode: str = "gen", ftype="pickle", verbose=True):
     """
@@ -102,6 +80,26 @@ def load_data(df_names: list, suffix: str, fpath: str, mode: str = "gen", ftype=
         fnames = [df_name + suffix for df_name in df_names]
         dfs = dataframes(filenames=fnames, filepath=fpath)
         return dfs
+
+def check_duplicates(df_names: List(str), dataframes, colname: str) -> None:
+    """
+    Basic check, whether or not duplicates are found across the dataframes
+    provided in the column specified.
+
+    :param df_names: list of strings to zip to / match dataframes provided
+    :param dataframes: iterable of dataframe objects
+    :param colname: string column name to check for duplicates
+    :return: None
+    """
+    # check for duplicates
+    for df_name, df in zip(df_names, dataframes):
+        no_dupes = df[colname].nunique() == df[colname].count()
+        if no_dupes:
+            no_dupes = "No Duplicates"
+        else:
+            no_dupes = "Duplicates Found"
+
+        print(f"{df_name.capitalize()} : {no_dupes}")
 
 
 def mem_usage(pandas_obj) -> str:
