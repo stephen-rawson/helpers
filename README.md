@@ -19,3 +19,7 @@ Composed of the following modules:
     - Function to encode a text column into a numerical column, returning the lookup if required
     - Functions to encode numerical columns as their z-score, modified z-score and min-max standardized versions
     - Function to return X, y numpy arrays derived from a pandas df, suitable for direct implementation in tensorflow or sklearn, etc
+- Preprocessing
+    - Function to fill missing values in a dataframe's column with mean, mode, median or specified value methods
+    - Function to return a filtered dataframe based on the specified z-score
+    - Function to return a filtered dataframe based on the specified multiple of the IQR
