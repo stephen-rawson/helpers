@@ -14,3 +14,8 @@ Composed of the following modules:
     - Function to split lists into sublists based on a desired sublist length, useful for generating sublists of specified length
 - Averages
     - Function to return an average dataframe from a dataframe containing many lagged values
+- Encoding
+    - Function to create dummy columns in place or in addition to a column containing categorical data in string form
+    - Function to encode a text column into a numerical column, returning the lookup if required
+    - Functions to encode numerical columns as their z-score, modified z-score and min-max standardized versions
+    - Function to return X, y numpy arrays derived from a pandas df, suitable for direct implementation in tensorflow or sklearn, etc
