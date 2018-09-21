@@ -250,3 +250,32 @@ def filtered_col_list(df: pd.DataFrame, starts: tuple, ends: tuple, contains: tu
     col_list = list(set(col_list))
 
     return col_list
+
+def split_lists(to_split: list, sublist_length: int) -> list:
+    """Splits a list into a list of lists where each sublist
+    has length equal to sublist_length. Useful for generating sublists
+    over which averages, volatility, growth rates, etc are calculated along
+    the index axis i.e. by entity.
+
+    Args:
+        - to_split: long list to split
+        - sublist_length: the length of sublists to split into
+    """
+    # empty list to store lists to loop through
+    list_of_lists = []
+
+    # while there still remain variables to add
+    while len(to_split) > 0:
+
+        # empty sublist to store one variable's headings
+        sublist = []
+
+        # while the length of this sublist is less than the number of headings we expect
+        while len(sublist) < sublist_length:
+            # append the first item in to_avg to the sublist and remove it from to_avg
+            sublist.append(to_split.pop(0))
+
+        # append the sublist to the list of lists
+        list_of_lists.append(sublist)
+
+    return list_of_lists
