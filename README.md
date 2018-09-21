@@ -23,3 +23,15 @@ Composed of the following modules:
     - Function to fill missing values in a dataframe's column with mean, mode, median or specified value methods
     - Function to return a filtered dataframe based on the specified z-score
     - Function to return a filtered dataframe based on the specified multiple of the IQR
+- Visualization
+    - A selection of visualization functions built on matplotlib and seaborn
+        - Null values
+        - Outlier visualization
+        - Distributions across a single dataframe / multiple dataframes
+        - Categorical countplots
+        - Time series plotting of averages across multiple dataframes
+        - Correlation plots
+        - Comparisons between original and boxcox data
+        - Prediction thresholds
+        - ROC plotting
+        - Classification report / confusion matrix
